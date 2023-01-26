@@ -16,7 +16,7 @@ const Home = () => {
             projectID = {projectID}
             userName={localStorage.getItem('username')}
             userSecret={localStorage.getItem('password')}
-            // renderChatList={(chatAppState) => <Sidebar {...chatAppState} />}
+            renderChatList={(chatAppState) => <Sidebar {...chatAppState} />}
             // renderNewChatForm={(creds) => <ChatForm creds={creds} />}
             // renderChatCard={(chat, index) => <ChatList chat={chat} index={index} />}
             renderChatFeed={(chatAppProps) => <ChatFeed {...chatAppProps} />}

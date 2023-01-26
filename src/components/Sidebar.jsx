@@ -12,7 +12,7 @@ const Sidebar = (props) => {
       <Search {...props} />
       {/* <ChatList {...props} /> */}
       <Chats {...props} />
-      <ChatForm />
+      {/* <ChatForm /> */}
     </div>
   )
 }
