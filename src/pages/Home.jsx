@@ -1,33 +1,29 @@
 import React from 'react';
 import { ChatEngine } from 'react-chat-engine';
+import { projectID } from '../data/data';
 import '../style.scss';
 import Sidebar from '../components/Sidebar';
-import Chat from '../components/Chat';
-import Login from './Login';
+import ChatForm from '../components/ChatForm';
+import ChatFeed from '../components/ChatFeed';
+// import ChatList from '../components/ChatList';
 
 const Home = () => {
   return (
     <div className='home'>
-      {console.log(localStorage.getItem('username'))}
         <div className="container">
-          {/* <Sidebar />
-          <Chat /> */}
-
           <ChatEngine
             height='100vh'
-            projectID='c8c9a35b-ff5f-492d-9c35-b91872e3383e'
+            projectID = {projectID}
             userName={localStorage.getItem('username')}
             userSecret={localStorage.getItem('password')}
-            renderChatFeed={(chatAppProps) => <Chat {...chatAppProps} />}
+            // renderChatList={(chatAppState) => <Sidebar {...chatAppState} />}
+            // renderNewChatForm={(creds) => <ChatForm creds={creds} />}
+            // renderChatCard={(chat, index) => <ChatList chat={chat} index={index} />}
+            renderChatFeed={(chatAppProps) => <ChatFeed {...chatAppProps} />}
           />
         </div>
     </div>
   )
 }
 
-export default Home
-
-
-// Project Id : c8c9a35b-ff5f-492d-9c35-b91872e3383e
-// Username : La_Posh
-// User secret : Young 23
+export default Home;

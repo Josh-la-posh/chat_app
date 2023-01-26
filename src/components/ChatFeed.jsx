@@ -1,11 +1,10 @@
-import React, {useState} from 'react'
+import React from 'react'
 import Input from './Input';
 import MyMessage from './MyMessage';
 import TheirMessage from './TheirMessage';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { solid, regular, brands, icon } from '@fortawesome/fontawesome-svg-core/import.macro'
 
-const Chat = (props) => {
+const ChatFeed = (props) => {
   const {chats, activeChat, userName, messages} = props;
   const chat = chats && chats[activeChat];
 
@@ -13,7 +12,7 @@ const Chat = (props) => {
     return chat.people.map((person, index) => person.last_read === message.id && (
       <div 
           key={`read_${index}`}
-          className='read-receipt'
+          className='read-receipts'
           style={{float: isMyMessage ? 'right' : 'left', backgroundImage: `url(${person?.person?.avatar})`}}
       />
     ))
@@ -36,7 +35,7 @@ const Chat = (props) => {
               : <TheirMessage message={message} lastMessage={messages[lastMessageKey]}/>
             }
           </div>
-          <div className="read-receipt" style={{marginRight: isMyMessage ? '18px' : '0px', marginLeft: isMyMessage ? '0px' : '68px'}}>
+          <div className="read-receipts" style={{marginRight: isMyMessage ? '18px' : '0px', marginLeft: isMyMessage ? '0px' : '68px',}}>
             {readReceipt(message, isMyMessage)}
           </div>
         </div>
@@ -44,7 +43,7 @@ const Chat = (props) => {
     })
   }
 
-  if (chat === null) {
+  if (chat === null || chat === undefined) {
     return '...Loading'
   }
   return (
@@ -65,4 +64,4 @@ const Chat = (props) => {
   )
 }
 
-export default Chat;
+export default ChatFeed;

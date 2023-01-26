@@ -1,19 +1,18 @@
 import React from 'react';
+import { ChatList } from 'react-chat-engine';
 import Navbar from './Navbar';
 import Search from './Search';
-import Chats from './Chats';
+import Chats from './ChatList';
+import ChatForm from './ChatForm';
 
-const Sidebar = () => {
+const Sidebar = (props) => {
   return (
     <div className='sidebar'>
-      <Navbar />
-      <Search />
-      <Chats />
-      <Chats />
-      <Chats />
-      <Chats />
-      <Chats />
-      <Chats />
+      <Navbar {...props} />
+      <Search {...props} />
+      {/* <ChatList {...props} /> */}
+      <Chats {...props} />
+      <ChatForm />
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-// import axios from 'axios';
+import { projectID } from '../data/data';
 import '../style.scss';
 
 const Login = () => {
@@ -13,23 +13,23 @@ const Login = () => {
     var axios = require('axios');
     var config = {
       method: 'get',
-      url: 'https//api.chatengine.io/chats/',
+      url: 'https//api.chatengine.io/users/',
       header: {
-        'Project-ID': "c8c9a35b-ff5f-492d-9c35-b91872e3383e",
+        'Project-ID': {projectID},
         'User-Name': username,
         'User-Secret': password,
       },
     }
-    window.location.reload();
     localStorage.setItem('username', username);
     localStorage.setItem('password', password);
-
+    window.location.reload();
+    
     axios(config)
     .then(function(response) {
-      console.log(JSON.stringify(response.data))
+      console.log(JSON.stringify(response))
     }).catch(function(err) {
       console.log(err)
-    })    
+    })
   }
 
   return (
@@ -47,7 +47,7 @@ const Login = () => {
                 value={password}
                 onChange={(e)=> setPassword(e.target.value)}
                 placeholder='Password' required/>
-          <button type='submit'><Link to='/'>Start Chatting</Link></button>
+          <button type='submit' onClick={handleSubmit}><Link to='/'>Start Chatting</Link></button>
         </form>
         <h2 className='error'>{error}</h2>
         <p>You don't have an account? <a href='/register'>Register</a></p>

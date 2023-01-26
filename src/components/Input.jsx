@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { sendMessage, isTyping } from 'react-chat-engine';
 
 const Input = (props) => {
+
   const [value, setValue] = useState('');
   const {chatId, creds} = props;
 
@@ -19,9 +20,8 @@ const Input = (props) => {
     setValue(e.target.value);
 
     isTyping(props, chatId);
-
   }
-  
+
   const handleUpload = (e) => {
     sendMessage(creds, chatId, {files: e.target.files, text: ''})
   }
@@ -34,7 +34,6 @@ const Input = (props) => {
             value={value}
             onChange={handleChange}
             onSubmit={handleSubmit} />
-
 
         <FontAwesomeIcon icon='paperclip' className='icon' />
         <input type="file" id='file' multiple={false} style={{display: 'none'}} onChange={handleUpload}/>

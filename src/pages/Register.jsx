@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { PrivateKey } from '../data/data';
 import '../style.scss';
 
 const Register = () => {
@@ -18,7 +19,7 @@ const Register = () => {
       method: 'post',
       url: 'https://api.chatengine.io/users/',
       headers: {
-        'PRiVATE-KEY': '{{5c9a9002-8a88-4f9b-ad84-5992ebd485d9}}'
+        'PRiVATE-KEY': `{${PrivateKey}}`
       },
       data:data
     }

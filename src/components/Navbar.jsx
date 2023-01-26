@@ -5,7 +5,7 @@ const Navbar = () => {
     <div className='navbar'>
       <span className="logo">Posh Chat</span>
       <img src="../../images/img.png" alt="User" className='userimg' />
-      <span className='username'>Joshua Fajobi</span>
+      <span className='username'>Joshua</span>
       <button>logout</button>
     </div>
   )
